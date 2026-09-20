@@ -1,0 +1,91 @@
+/* Nurlan Utesov — personal site. Plain CSS, no dependencies. */
+:root {
+  --bg: #fffdf9;
+  --fg: #1c1c1c;
+  --muted: #5d5d5d;
+  --rule: #d8d3c8;
+  --accent: #7a1f1f;      /* deep red, close to the Wisconsin mark */
+  --accent-soft: #f3e9e6;
+  --box: #f7f3ec;
+  --maxw: 46rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15161a;
+    --fg: #e8e6e1;
+    --muted: #a9a7a0;
+    --rule: #34363c;
+    --accent: #e08a8a;
+    --accent-soft: #2a1f1f;
+    --box: #1d1f24;
+  }
+}
+* { box-sizing: border-box; }
+html { font-size: 17px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.55;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1.1rem; }
+
+/* header and navigation */
+header.site {
+  border-bottom: 1px solid var(--rule);
+  padding: 1.1rem 0 0.9rem;
+}
+header.site .wrap { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem 1.5rem; }
+header.site .name { font-size: 1.25rem; font-weight: bold; letter-spacing: 0.01em; color: var(--fg); }
+nav a { margin-left: 1.15rem; color: var(--muted); font-size: 0.98rem; }
+nav a:first-child { margin-left: 0; }
+nav a.current { color: var(--fg); border-bottom: 2px solid var(--accent); }
+
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.9rem; font-weight: normal; margin: 0 0 0.35rem; line-height: 1.2; }
+h2 { font-size: 1.28rem; font-weight: bold; margin: 2.2rem 0 0.7rem; }
+h2:first-child { margin-top: 0; }
+h3 { font-size: 1.06rem; font-weight: bold; margin: 1.4rem 0 0.3rem; }
+p { margin: 0 0 0.9rem; }
+.lede { color: var(--muted); font-size: 1.05rem; margin-bottom: 1.4rem; }
+.muted { color: var(--muted); }
+.small { font-size: 0.92rem; }
+
+/* home layout */
+.hero { display: flex; gap: 2rem; align-items: flex-start; }
+.hero .text { flex: 1 1 auto; }
+.hero img { width: 170px; height: auto; border-radius: 4px; flex: 0 0 auto; border: 1px solid var(--rule); }
+@media (max-width: 560px) {
+  .hero { flex-direction: column-reverse; }
+  .hero img { width: 140px; }
+}
+.links { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; }
+.links li a { font-weight: bold; }
+
+/* boxes and paper entries */
+.box {
+  background: var(--box);
+  border-left: 4px solid var(--accent);
+  padding: 1rem 1.2rem;
+  margin: 1.6rem 0;
+}
+.box h2 { margin-top: 0; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.paper { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
+.paper:last-of-type { border-bottom: none; }
+.paper .title { font-weight: bold; font-size: 1.08rem; margin-bottom: 0.15rem; }
+.paper .meta { color: var(--muted); font-size: 0.94rem; margin-bottom: 0.5rem; }
+.paper .meta a { margin-right: 1rem; font-weight: bold; }
+.paper .meta span { margin-right: 1rem; }
+.abstract { display: none; margin-top: 0.4rem; }
+.abstract.open, .abstract:target { display: block; }
+.abstract p { margin: 0.4rem 0 0.2rem; }
+
+footer.site {
+  border-top: 1px solid var(--rule);
+  padding: 1.2rem 0 2rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
